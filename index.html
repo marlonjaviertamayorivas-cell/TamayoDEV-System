@@ -1,0 +1,146 @@
+<!DOCTYPE html><!-- Splash Screen / Intro -->
+<div id="intro-screen">
+  <div class="intro-content">
+    <h1 class="logo-siglas"><span class="brand-t">T</span>-<span class="brand-dev">DEV</span></h1>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO Y METAETIQUETAS SEO PARA GOOGLE -->
+    <title>TamayoDev | Creación y Configuración Profesional de Servidores de Discord</title>
+    <meta name="description" content="Servicios profesionales de configuración de servidores de Discord, arquitectura de roles, bots, permisos avanzados y estructuras para comunidades de RP, FiveM y gaming.">
+    <meta name="keywords" content="Discord, Servidores Discord, TamayoDev, Marlon Tamayo, Configuración Discord, FiveM, SAMP, Minecraft, Bots Discord, Crear servidor Discord">
+    <meta name="author" content="Marlon Tamayo">
+
+    <!-- METADATOS PARA REDES SOCIALES -->
+    <meta property="og:title" content="TamayoDev | Configuración Profesional de Discord">
+    <meta property="og:description" content="Estructuras personalizadas, permisos avanzados, bots e integración para comunidades de Discord.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAV BAR / HEADER -->
+    <header>
+        <div class="logo">
+            <h2>Tamayo<span>Dev</span></h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio" data-es="Inicio" data-en="Home" data-pt="Início">Inicio</a></li>
+                <li><a href="#servicios" data-es="Servicios" data-en="Services" data-pt="Serviços">Servicios</a></li>
+                <li><a href="#contacto" data-es="Contacto" data-en="Contact" data-pt="Contato">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- SELECTOR DE IDIOMA -->
+            <select id="lang-select">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="pt">🇧🇷 Português</option>
+            </select>
+            <a href="#servicios" class="btn-primary" data-es="Contratar" data-en="Hire Me" data-pt="Contratar">Contratar</a>
+        </div>
+    </header>
+
+    <!-- ÁREA PRINCIPAL DE CONTENIDO -->
+    <main class="content-area">
+        
+        <!-- HERO SECTION -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title">Creación y Configuración Profesional de Servidores de Discord</h1>
+                <p id="hero-desc">Estructuras personalizadas, permisos avanzados, bots de moderación, diseño de roles e integración para comunidades de streaming, gaming y Roleplay.</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn-primary" id="btn-services-hero">Ver Servicios y Precios</a>
+                    <button onclick="postularseWhatsApp()" class="btn-secondary" id="btn-apply-hero">Postularse al Equipo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS Y PRECIOS MULTI-DIVISA -->
+        <section id="servicios" class="services-section">
+            <h2 class="section-title" id="title-services">Servicios y Paquetes</h2>
+            <div class="services-grid">
+
+                <!-- Paquete 1 -->
+                <div class="card">
+                    <h3>Discord Community / Basic</h3>
+                    <p class="price" data-usd="15">
+                        $15 USD <span class="price-converted">(Detectando divisa...)</span>
+                    </p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Diseño de roles y jerarquías</li>
+                        <li><i class="fa-solid fa-check"></i> Canales de texto y voz organizados</li>
+                        <li><i class="fa-solid fa-check"></i> Bots esenciales (Bienvenida/Auto-roles)</li>
+                        <li><i class="fa-solid fa-check"></i> Sistema básico de seguridad</li>
+                    </ul>
+                    <button class="btn-pay" onclick="pagarServicio('Discord Basic', 15)">Pagar y Contratar</button>
+                </div>
+
+                <!-- Paquete 2 (Destacado) -->
+                <div class="card featured">
+                    <span class="badge">Más Popular</span>
+                    <h3>Discord PRO / RP & Gaming</h3>
+                    <p class="price" data-usd="35">
+                        $35 USD <span class="price-converted">(Detectando divisa...)</span>
+                    </p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Todo lo del paquete Básico</li>
+                        <li><i class="fa-solid fa-check"></i> Estructura para FiveM / SAMP / Minecraft</li>
+                        <li><i class="fa-solid fa-check"></i> Integración de bots de economía y tickets</li>
+                        <li><i class="fa-solid fa-check"></i> Registros y logs de administración</li>
+                        <li><i class="fa-solid fa-check"></i> Tipografía y símbolos personalizados</li>
+                    </ul>
+                    <button class="btn-pay" onclick="pagarServicio('Discord PRO', 35)">Pagar y Contratar</button>
+                </div>
+
+                <!-- Paquete 3 -->
+                <div class="card">
+                    <h3>Personalizado / Full Setup</h3>
+                    <p class="price">Cotización</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Rediseño total de servidor existente</li>
+                        <li><i class="fa-solid fa-check"></i> Permisos avanzados antiprotección</li>
+                        <li><i class="fa-solid fa-check"></i> Plantillas Web / Embeds a medida</li>
+                        <li><i class="fa-solid fa-check"></i> Soporte VIP post-entrega</li>
+                    </ul>
+                    <button class="btn-pay" onclick="pagarServicio('Custom Setup', 0)">Contactar para Cotizar</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CONTACTO Y RECLUTAMIENTO POR WHATSAPP -->
+        <section id="contacto" class="contact-section">
+            <div class="contact-box">
+                <h2 id="title-contact">¿Quieres trabajar con nosotros o necesitas atención personal?</h2>
+                <p id="desc-contact">Si deseas formar parte de nuestro equipo de desarrolladores/staff o solicitar una cotización especial, contáctanos directamente a nuestro canal de atención en WhatsApp.</p>
+                <div class="contact-buttons">
+                    <button onclick="postularseWhatsApp()" class="btn-secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar Postulación de Staff</button>
+                    <button onclick="pagarServicio('Consulta General', 0)" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Hablar con un Asesor</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/573218747258?text=Hola!%20Tengo%20una%20consulta%20sobre%20tus%20servicios%20de%20Discord." class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 TamayoDev Services. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
