@@ -136,7 +136,7 @@ function actualizarPreciosEnPantalla() {
 }
 
 // --- 6. REDIRECCIÓN A TELEGRAM ---
-function irATelegram(servicio, precioUSD) {
+function irATelegram() {
     window.open(LINK_TELEGRAM, '_blank');
 }
 
