@@ -1,363 +1,173 @@
-/* Pantalla de Intro */
-#intro-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: #0d0f12; /* Color de fondo oscuro acorde a tu web */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO Y METAETIQUETAS SEO -->
+    <title>TamayoDev | Configuración Profesional de Discord & Telegram</title>
+    <meta name="description" content="Servicios profesionales de configuración de servidores de Discord, estructuras de roles, bots, seguridad y comunidades en Telegram por TamayoDev.">
+    <meta name="keywords" content="TamayoDev, Discord, Telegram, Servidores Discord, FiveM, SAMP, Minecraft, Bots, Comunidades">
+    <meta name="author" content="Marlon Tamayo">
 
-.intro-content {
-  text-align: center;
-}
+    <!-- METADATOS PARA REDES SOCIALES -->
+    <meta property="og:title" content="TamayoDev | Servicios & Desarrollo">
+    <meta property="og:description" content="Configuración profesional de Discord, bots e integración para comunidades en Telegram.">
+    <meta property="og:type" content="website">
 
-.logo-siglas {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: 4px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  animation: pulse 1.5s infinite alternate;
-}
+    <!-- TIPOGRAFÍA GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-.brand-t {
-  color: #5865F2; /* Azul estilo Discord */
-}
+    <!-- ICONOS FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- HOJA DE ESTILOS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-.brand-dev {
-  color: #00E676; /* Verde Neón / Accent */
-}
+    <!-- Splash Screen / Intro -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <h1 class="logo-siglas"><span class="brand-t">T</span>-<span class="brand-dev">DEV</span></h1>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
 
-/* Barra de carga sutil debajo de las siglas */
-.loader-bar {
-  width: 120px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 0 auto;
-  border-radius: 3px;
-  position: relative;
-  overflow: hidden;
-}
+    <!-- Fondo Neón Animado y Spotlight -->
+    <div class="bg-glow"></div>
+    <div class="spotlight" id="spotlight"></div>
 
-.loader-bar::after {
-  content: '';
-  position: absolute;
-  left: -50%;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(90deg, #5865F2, #00E676);
-  animation: loading 1.2s infinite ease-in-out;
-  border-radius: 3px;
-}
+    <!-- NAV BAR / HEADER -->
+    <header>
+        <div class="logo">
+            <h2>Tamayo<span>Dev</span></h2>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#inicio" id="navHome" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" id="navServices" class="nav-link">Servicios</a></li>
+                <li><a href="https://discord.gg/f5CVXqsHnb" target="_blank" class="nav-link"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                <li><a href="https://t.me/dev_tamayo" target="_blank" class="nav-link"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                <li><a href="#contacto" id="navContact" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- SELECTOR DE IDIOMA -->
+            <select id="lang-select">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="pt">🇧🇷 Português</option>
+            </select>
+            <a href="https://discord.gg/f5CVXqsHnb" target="_blank" class="btn-primary" id="btn-hire-nav"><i class="fa-brands fa-discord"></i> Entrar a Discord</a>
+        </div>
+    </header>
 
-@keyframes loading {
-  0% { left: -50%; width: 30%; }
-  50% { width: 60%; }
-  100% { left: 100%; width: 30%; }
-}
+    <!-- ÁREA PRINCIPAL DE CONTENIDO -->
+    <main class="content-area">
+        
+        <!-- HERO SECTION -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <span class="badge"><i class="fa-solid fa-bolt"></i> Discord & Telegram Solutions</span>
+                <h1 id="hero-title">Creación y Configuración Profesional de Servidores de Discord</h1>
+                <p id="hero-desc">Estructuras personalizadas, permisos avanzados, bots de moderación, diseño de roles e integración para comunidades de streaming, gaming y Roleplay.</p>
+                <div class="hero-buttons">
+                    <a href="https://discord.gg/f5CVXqsHnb" target="_blank" class="btn-primary" id="btn-discord-hero"><i class="fa-brands fa-discord"></i> Entrar al Discord Oficial</a>
+                    <a href="#servicios" class="btn-secondary" id="btn-services-hero">Ver Servicios y Precios <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="https://t.me/dev_tamayo" target="_blank" class="btn-telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                </div>
+            </div>
+        </section>
 
-@keyframes pulse {
-  0% { transform: scale(0.98); opacity: 0.8; }
-  100% { transform: scale(1.02); opacity: 1; }
-}
+        <!-- SERVICIOS Y PRECIOS MULTI-DIVISA -->
+        <section id="servicios" class="services-section section">
+            <h2 class="section-title" id="title-services">Servicios y Paquetes</h2>
+            <div class="services-grid">
 
-/* Clase JS para ocultar */
-#intro-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-}* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+                <!-- Paquete 1 -->
+                <div class="card">
+                    <i class="fa-brands fa-discord card-icon icon-dc"></i>
+                    <h3 id="pkg1-title">Discord Community / Basic</h3>
+                    <p class="price" data-usd="15">
+                        $15 USD <span class="price-converted">(Detectando divisa...)</span>
+                    </p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item1">Diseño de roles y jerarquías</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item2">Canales de texto y voz organizados</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item3">Bots esenciales (Bienvenida/Auto-roles)</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item4">Sistema básico de seguridad</span></li>
+                    </ul>
+                    <button class="btn-pay btn-dc-pay" id="btn-pkg1" onclick="irATelegram('Discord Basic', 15)">Contratar por Telegram</button>
+                </div>
 
-body {
-    background-color: #0f1117;
-    color: #e1e1e6;
-    line-height: 1.6;
-}
+                <!-- Paquete 2 (Destacado) -->
+                <div class="card featured">
+                    <span class="badge-pop" id="badge-popular">Más Popular</span>
+                    <i class="fa-solid fa-gamepad card-icon icon-dc"></i>
+                    <h3 id="pkg2-title">Discord PRO / RP & Gaming</h3>
+                    <p class="price" data-usd="35">
+                        $35 USD <span class="price-converted">(Detectando divisa...)</span>
+                    </p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item1">Todo lo del paquete Básico</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item2">Estructura para FiveM / SAMP / Minecraft</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item3">Integración de bots de economía y tickets</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item4">Registros y logs de administración</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item5">Tipografía y símbolos personalizados</span></li>
+                    </ul>
+                    <button class="btn-pay btn-dc-pay" id="btn-pkg2" onclick="irATelegram('Discord PRO', 35)">Contratar por Telegram</button>
+                </div>
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background-color: #161822;
-    border-bottom: 1px solid #282a36;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+                <!-- Paquete 3 -->
+                <div class="card">
+                    <i class="fa-solid fa-code card-icon icon-tg"></i>
+                    <h3 id="pkg3-title">Personalizado / Full Setup</h3>
+                    <p class="price" id="pkg3-price">Cotización</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item1">Rediseño total de servidor existente</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item2">Permisos avanzados antiprotección</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item3">Plantillas Web / Embeds a medida</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item4">Soporte VIP post-entrega</span></li>
+                    </ul>
+                    <button class="btn-pay btn-tg-pay" id="btn-pkg3" onclick="irATelegram('Custom Setup', 0)">Contactar para Cotizar</button>
+                </div>
 
-.logo h2 { color: #fff; }
-.logo span { color: #5865F2; }
+            </div>
+        </section>
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
+        <!-- SECCIÓN DE CONTACTO Y COMUNIDAD -->
+        <section id="contacto" class="contact-section section">
+            <div class="contact-box card">
+                <h2 id="title-contact">¿Quieres unirte a la comunidad o necesitas atención personal?</h2>
+                <p id="desc-contact">Únete a nuestro servidor de Discord para interactuar con la comunidad o escríbenos por Telegram para contrataciones y cotizaciones privadas.</p>
+                <div class="contact-buttons">
+                    <a href="https://discord.gg/f5CVXqsHnb" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> Entrar al Discord</a>
+                    <a href="https://t.me/dev_tamayo" target="_blank" class="btn-telegram"><i class="fa-brands fa-telegram"></i> Grupo de Telegram</a>
+                </div>
+            </div>
+        </section>
 
-nav a {
-    color: #a9a9b3;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
+    </main>
 
-nav a:hover { color: #5865F2; }
+    <!-- BOTÓN FLOTANTE DE TELEGRAM -->
+    <div class="floating-buttons">
+        <a href="https://t.me/dev_tamayo" target="_blank" class="telegram-float" title="Comunidad de Telegram" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+    </div>
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 TamayoDev Services. Todos los derechos reservados.</p>
+    </footer>
 
-#lang-select {
-    background: #20222e;
-    color: #fff;
-    border: 1px solid #3b3e54;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* BOTONES */
-.btn-primary {
-    background-color: #5865F2;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-primary:hover { background-color: #4752c4; }
-
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    padding: 12px 22px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: 1px solid #5865F2;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-secondary:hover { background-color: #5865F2; }
-
-/* ÁREA DE CONTENIDO */
-.content-area {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 8%;
-}
-
-/* HERO SECTION */
-.hero {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.hero p {
-    color: #a9a9b3;
-    font-size: 1.15rem;
-    max-width: 750px;
-    margin: 0 auto 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* SERVICIOS */
-.services-section {
-    padding: 60px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.card {
-    background-color: #161822;
-    border: 1px solid #282a36;
-    border-radius: 10px;
-    padding: 30px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card.featured {
-    border-color: #5865F2;
-    box-shadow: 0 0 20px rgba(88, 101, 242, 0.2);
-}
-
-.badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background-color: #5865F2;
-    color: white;
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.card .price {
-    font-size: 1.4rem;
-    color: #5865F2;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.price-converted {
-    font-size: 0.95rem;
-    color: #23a55a;
-    font-weight: normal;
-    display: inline-block;
-    margin-left: 4px;
-}
-
-.card ul {
-    list-style: none;
-    margin-bottom: 30px;
-}
-
-.card li {
-    margin-bottom: 12px;
-    color: #a9a9b3;
-    font-size: 0.95rem;
-}
-
-.card li i {
-    color: #5865F2;
-    margin-right: 8px;
-}
-
-.btn-pay {
-    background-color: #23a55a;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-}
-
-.btn-pay:hover { background-color: #1d8a4b; }
-
-/* CONTACTO Y RECLUTAMIENTO */
-.contact-section {
-    padding: 60px 0;
-}
-
-.contact-box {
-    background-color: #161822;
-    border: 1px solid #282a36;
-    border-radius: 12px;
-    padding: 40px 30px;
-    text-align: center;
-}
-
-.contact-box h2 {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.contact-box p {
-    color: #a9a9b3;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    font-size: 1.05rem;
-}
-
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* BOTÓN FLOTANTE DE WHATSAPP */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 32px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #128c7e;
-    transform: scale(1.1);
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    background-color: #161822;
-    border-top: 1px solid #282a36;
-    color: #a9a9b3;
-}
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
