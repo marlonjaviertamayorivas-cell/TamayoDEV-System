@@ -28,13 +28,8 @@
     animation: pulse 1.5s infinite alternate;
 }
 
-.brand-t {
-    color: #5865F2; /* Azul Discord */
-}
-
-.brand-dev {
-    color: #0088cc; /* Azul Telegram */
-}
+.brand-t { color: #5865F2; }
+.brand-dev { color: #0088cc; }
 
 .loader-bar {
     width: 120px;
@@ -90,6 +85,9 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .bg-glow {
@@ -132,6 +130,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 .logo h2 { color: #fff; font-weight: 800; }
@@ -192,6 +191,7 @@ nav a:hover { color: #5865F2; }
     transition: 0.3s;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     box-shadow: 0 0 15px rgba(88, 101, 242, 0.3);
 }
@@ -212,6 +212,7 @@ nav a:hover { color: #5865F2; }
     transition: 0.3s;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);
 }
@@ -221,13 +222,37 @@ nav a:hover { color: #5865F2; }
     transform: translateY(-2px);
 }
 
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #5865F2;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover { 
+    background-color: rgba(88, 101, 242, 0.15); 
+}
+
 /* ==========================================================================
-   5. SECCIONES Y TARJETAS
+   5. SECCIONES Y CENTRADO DE CONTENIDO
    ========================================================================== */
 .content-area {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .badge {
@@ -244,7 +269,20 @@ nav a:hover { color: #5865F2; }
 
 .hero {
     padding: 90px 0 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero h1 {
@@ -266,9 +304,13 @@ nav a:hover { color: #5865F2; }
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
-.services-section { padding: 60px 0; }
+.services-section { 
+    padding: 60px 0; 
+    width: 100%;
+}
 
 .section-title {
     text-align: center;
@@ -283,6 +325,8 @@ nav a:hover { color: #5865F2; }
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    width: 100%;
+    justify-content: center;
 }
 
 .card {
@@ -295,6 +339,7 @@ nav a:hover { color: #5865F2; }
     flex-direction: column;
     justify-content: space-between;
     transition: 0.4s ease;
+    width: 100%;
 }
 
 .card:hover {
@@ -331,7 +376,7 @@ nav a:hover { color: #5865F2; }
 .card .price { font-size: 1.4rem; color: #5865F2; font-weight: bold; margin-bottom: 20px; }
 .price-converted { font-size: 0.95rem; color: #00E676; font-weight: normal; margin-left: 4px; }
 
-.card ul { list-style: none; margin-bottom: 30px; }
+.card ul { list-style: none; margin-bottom: 30px; text-align: left; }
 .card li { margin-bottom: 12px; color: #a9a9b3; font-size: 0.95rem; display: flex; align-items: center; }
 .card li i { color: #5865F2; margin-right: 10px; }
 
@@ -353,8 +398,20 @@ nav a:hover { color: #5865F2; }
 .btn-tg-pay { background-color: #0088cc; }
 .btn-tg-pay:hover { background-color: #0077b3; }
 
-.contact-section { padding: 60px 0; }
-.contact-box { background-color: #161822; border: 1px solid #282a36; border-radius: 12px; padding: 40px 30px; text-align: center; }
+.contact-section { 
+    padding: 60px 0; 
+    width: 100%;
+}
+
+.contact-box { 
+    background-color: #161822; 
+    border: 1px solid #282a36; 
+    border-radius: 12px; 
+    padding: 40px 30px; 
+    text-align: center; 
+    width: 100%;
+}
+
 .contact-box h2 { color: #fff; font-size: 1.8rem; margin-bottom: 15px; }
 .contact-box p { color: #a9a9b3; max-width: 700px; margin: 0 auto 30px; }
 .contact-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
@@ -392,17 +449,55 @@ nav a:hover { color: #5865F2; }
     transform: scale(1.1);
 }
 
-footer { text-align: center; padding: 25px; background-color: #161822; border-top: 1px solid #282a36; color: #a9a9b3; }
+footer { 
+    text-align: center; 
+    padding: 25px; 
+    background-color: #161822; 
+    border-top: 1px solid #282a36; 
+    color: #a9a9b3; 
+    width: 100%;
+    margin-top: auto;
+}
 
 /* ==========================================================================
-   7. MÓVIL
+   7. ADAPTABILIDAD MÓVIL (RESPONSIVE)
    ========================================================================== */
 @media (max-width: 768px) {
     .mobile-menu-btn { display: block; }
-    nav { position: fixed; top: 70px; right: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(22, 24, 34, 0.95); transition: 0.4s ease; padding: 40px; }
+    
+    nav { 
+        position: fixed; 
+        top: 70px; 
+        right: -100%; 
+        width: 100%; 
+        height: calc(100vh - 70px); 
+        background: rgba(22, 24, 34, 0.95); 
+        transition: 0.4s ease; 
+        padding: 40px; 
+    }
+    
     nav.active { right: 0; }
-    nav ul { flex-direction: column; gap: 25px; align-items: center; }
+    
+    nav ul { 
+        flex-direction: column; 
+        gap: 25px; 
+        align-items: center; 
+    }
+
     .hero h1 { font-size: 2.1rem; }
-    .hero-buttons { flex-direction: column; width: 100%; }
-    .btn-primary, .btn-telegram { width: 100%; justify-content: center; }
+    .hero p { font-size: 1rem; }
+    
+    .hero-buttons { 
+        flex-direction: column; 
+        width: 100%; 
+    }
+    
+    .btn-primary, .btn-telegram, .btn-secondary { 
+        width: 100%; 
+        justify-content: center; 
+    }
+    
+    .content-area { 
+        padding: 20px 5%; 
+    }
 }
