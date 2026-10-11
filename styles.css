@@ -1,0 +1,408 @@
+/* ==========================================================================
+   1. PANTALLA DE INTRO / SPLASH SCREEN
+   ========================================================================== */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0f12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.intro-content {
+    text-align: center;
+}
+
+.logo-siglas {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+.brand-t {
+    color: #5865F2; /* Azul Discord */
+}
+
+.brand-dev {
+    color: #0088cc; /* Azul Telegram */
+}
+
+.loader-bar {
+    width: 120px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    left: -50%;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, #5865F2, #0088cc);
+    animation: loading 1.2s infinite ease-in-out;
+    border-radius: 3px;
+}
+
+@keyframes loading {
+    0% { left: -50%; width: 30%; }
+    50% { width: 60%; }
+    100% { left: 100%; width: 30%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.98); opacity: 0.8; }
+    100% { transform: scale(1.02); opacity: 1; }
+}
+
+#intro-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ==========================================================================
+   2. ESTILOS GENERALES Y LUCES DE FONDO
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0f1117;
+    color: #e1e1e6;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(88, 101, 242, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 136, 204, 0.12) 0%, transparent 40%);
+}
+
+.spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(88, 101, 242, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+/* ==========================================================================
+   3. HEADER / NAV BAR
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(22, 24, 34, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #282a36;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h2 { color: #fff; font-weight: 800; }
+.logo span { color: #5865F2; }
+
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: #a9a9b3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover { color: #5865F2; }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#lang-select {
+    background: #20222e;
+    color: #fff;
+    border: 1px solid #3b3e54;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* ==========================================================================
+   4. BOTONES PRINCIPALES
+   ========================================================================== */
+.btn-primary {
+    background-color: #5865F2;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.3);
+}
+
+.btn-primary:hover { 
+    background-color: #4752c4; 
+    transform: translateY(-2px);
+}
+
+.btn-telegram {
+    background-color: #0088cc;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);
+}
+
+.btn-telegram:hover {
+    background-color: #0077b3;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   5. SECCIONES Y TARJETAS
+   ========================================================================== */
+.content-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 8%;
+}
+
+.badge {
+    background: rgba(88, 101, 242, 0.15);
+    border: 1px solid rgba(88, 101, 242, 0.4);
+    color: #5865F2;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.hero {
+    padding: 90px 0 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    color: #a9a9b3;
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.services-section { padding: 60px 0; }
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #161822;
+    border: 1px solid #282a36;
+    border-radius: 12px;
+    padding: 35px 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #5865F2;
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.icon-dc { color: #5865F2; }
+.icon-tg { color: #0088cc; }
+
+.card.featured {
+    border-color: #5865F2;
+    box-shadow: 0 0 25px rgba(88, 101, 242, 0.25);
+}
+
+.badge-pop {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #5865F2;
+    color: white;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.card h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+.card .price { font-size: 1.4rem; color: #5865F2; font-weight: bold; margin-bottom: 20px; }
+.price-converted { font-size: 0.95rem; color: #00E676; font-weight: normal; margin-left: 4px; }
+
+.card ul { list-style: none; margin-bottom: 30px; }
+.card li { margin-bottom: 12px; color: #a9a9b3; font-size: 0.95rem; display: flex; align-items: center; }
+.card li i { color: #5865F2; margin-right: 10px; }
+
+.btn-pay {
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-dc-pay { background-color: #5865F2; }
+.btn-dc-pay:hover { background-color: #4752c4; }
+
+.btn-tg-pay { background-color: #0088cc; }
+.btn-tg-pay:hover { background-color: #0077b3; }
+
+.contact-section { padding: 60px 0; }
+.contact-box { background-color: #161822; border: 1px solid #282a36; border-radius: 12px; padding: 40px 30px; text-align: center; }
+.contact-box h2 { color: #fff; font-size: 1.8rem; margin-bottom: 15px; }
+.contact-box p { color: #a9a9b3; max-width: 700px; margin: 0 auto 30px; }
+.contact-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+/* ==========================================================================
+   6. BOTÓN FLOTANTE Y FOOTER
+   ========================================================================== */
+.floating-buttons {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.telegram-float {
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-decoration: none;
+    transition: 0.3s;
+    background-color: #0088cc;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+.telegram-float:hover {
+    transform: scale(1.1);
+}
+
+footer { text-align: center; padding: 25px; background-color: #161822; border-top: 1px solid #282a36; color: #a9a9b3; }
+
+/* ==========================================================================
+   7. MÓVIL
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: block; }
+    nav { position: fixed; top: 70px; right: -100%; width: 100%; height: calc(100vh - 70px); background: rgba(22, 24, 34, 0.95); transition: 0.4s ease; padding: 40px; }
+    nav.active { right: 0; }
+    nav ul { flex-direction: column; gap: 25px; align-items: center; }
+    .hero h1 { font-size: 2.1rem; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-telegram { width: 100%; justify-content: center; }
+}
