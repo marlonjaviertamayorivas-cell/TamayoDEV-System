@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- TÍTULO Y METAETIQUETAS SEO -->
-    <title>TamayoDev | Configuración Profesional de Discord & Telegram</title>
-    <meta name="description" content="Servicios profesionales de configuración de servidores de Discord, estructuras de roles, bots, seguridad y comunidades en Telegram por TamayoDev.">
-    <meta name="keywords" content="TamayoDev, Discord, Telegram, Servidores Discord, FiveM, SAMP, Minecraft, Bots, Comunidades">
+    <title>TamayoDev | Servidores de Discord & Desarrollo Web</title>
+    <meta name="description" content="Servidores de Discord de alto rendimiento y desarrollo web profesional por TamayoDev.">
     <meta name="author" content="Marlon Tamayo">
 
-    <!-- METADATOS PARA REDES SOCIALES -->
-    <meta property="og:title" content="TamayoDev | Servicios & Desarrollo">
-    <meta property="og:description" content="Configuración profesional de Discord, bots e integración para comunidades en Telegram.">
-    <meta property="og:type" content="website">
+    <!-- INTEGRACIÓN PARA APPLICACIÓN WEB INSTALABLE (PWA) -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5865F2">
 
-    <!-- TIPOGRAFÍA GOOGLE FONTS -->
+    <!-- TIPOGRAFÍAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
     <!-- ICONOS FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,7 +25,7 @@
 </head>
 <body>
 
-    <!-- Splash Screen / Intro -->
+    <!-- 1. SPLASH SCREEN (INTRO LOADER) -->
     <div id="intro-screen">
         <div class="intro-content">
             <h1 class="logo-siglas"><span class="brand-t">T</span>-<span class="brand-dev">DEV</span></h1>
@@ -36,35 +33,81 @@
         </div>
     </div>
 
-    <!-- Fondo Neón Animado y Spotlight -->
-    <div class="bg-glow"></div>
+    <!-- 2. LOBBY INTERACTIVO CON LOGO SVG EN CÓDIGO -->
+    <div id="lobby-screen" class="lobby-container hidden">
+        <div class="lobby-card glow-box">
+            <div class="lobby-logo">
+                <!-- LOGO SVG EN CÓDIGO -->
+                <svg class="tamayo-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" class="logo-frame" />
+                    <path d="M25,30 H75 V42 H56 V75 H44 V42 H25 Z" class="logo-letter-t" />
+                    <circle cx="50" cy="18" r="4" class="logo-dot" />
+                </svg>
+                <h2>TAMAYO<span>DEV</span></h2>
+            </div>
+            
+            <p class="lobby-subtitle">La experiencia suena mejor con audio.</p>
+            
+            <!-- BOTONES DE AUDIO -->
+            <div class="lobby-audio-actions">
+                <button id="btn-enter-sound" class="btn-lobby btn-glow-primary">
+                    <i class="fa-solid fa-volume-high"></i> Entrar con sonido
+                </button>
+                <button id="btn-enter-mute" class="btn-lobby btn-glow-secondary">
+                    <i class="fa-solid fa-volume-xmark"></i> Entrar sin sonido
+                </button>
+            </div>
+
+            <div class="lobby-divider"><span>ACCESO A LA PLATAFORMA</span></div>
+
+            <!-- BOTONES DE AUTENTICACIÓN -->
+            <div class="lobby-auth-actions">
+                <button id="btn-lobby-login" class="btn-discord-gate">
+                    <i class="fa-brands fa-discord"></i> Iniciar Sesión con Discord
+                </button>
+                <button id="btn-lobby-guest" class="btn-guest-gate">
+                    Entrar como Invitado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FONDO ANIMADO DE CHISPAS DE FUEGO -->
+    <canvas id="fire-particles-canvas"></canvas>
     <div class="spotlight" id="spotlight"></div>
 
-    <!-- NAV BAR / HEADER -->
-    <header>
-        <div class="logo">
-            <h2>Tamayo<span>Dev</span></h2>
-        </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <nav id="navMenu">
-            <ul>
-                <li><a href="#inicio" id="navHome" class="nav-link">Inicio</a></li>
-                <li><a href="#servicios" id="navServices" class="nav-link">Servicios</a></li>
-                <li><a href="https://discord.gg/tu_invitacion" target="_blank" class="nav-link"><i class="fa-brands fa-discord"></i> Discord</a></li>
-                <li><a href="https://t.me/dev_tamayo" target="_blank" class="nav-link"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
-                <li><a href="#contacto" id="navContact" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <!-- SELECTOR DE IDIOMA -->
-            <select id="lang-select">
-                <option value="es">🇪🇸 Español</option>
-                <option value="en">🇺🇸 English</option>
-                <option value="pt">🇧🇷 Português</option>
-            </select>
-            <a href="https://discord.gg/tu_invitacion" target="_blank" class="btn-primary" id="btn-hire-nav"><i class="fa-brands fa-discord"></i> Entrar a Discord</a>
+    <!-- 3. BARRA SUPERIOR DE NAVEGACIÓN (STYLE CURXIAL CAPSULE) -->
+    <header class="header-capsule-wrapper">
+        <div class="header-capsule">
+            <div class="logo">
+                <svg class="tamayo-logo-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" class="logo-frame" />
+                    <path d="M25,30 H75 V42 H56 V75 H44 V42 H25 Z" class="logo-letter-t" />
+                </svg>
+                <h2>TAMAYO<span>DEV</span></h2>
+            </div>
+            
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#inicio" class="nav-link active"><i class="fa-solid fa-house"></i> HOME</a></li>
+                    <li><a href="#servicios" class="nav-link"><i class="fa-solid fa-server"></i> SERVICIOS</a></li>
+                    <li><a href="#discord-community" class="nav-link"><i class="fa-brands fa-discord"></i> DISCORD</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <select id="lang-select">
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="pt">🇧🇷 PT</option>
+                </select>
+
+                <div id="discord-auth-container">
+                    <button id="btn-discord-login-nav" class="btn-discord-nav">
+                        <i class="fa-brands fa-discord"></i> <span id="nav-user-label">LOGIN</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -73,98 +116,120 @@
         
         <!-- HERO SECTION -->
         <section id="inicio" class="hero">
-            <div class="hero-content">
-                <span class="badge"><i class="fa-solid fa-bolt"></i> Discord & Telegram Solutions</span>
-                <h1 id="hero-title">Creación y Configuración Profesional de Servidores de Discord</h1>
-                <p id="hero-desc">Estructuras personalizadas, permisos avanzados, bots de moderación, diseño de roles e integración para comunidades de streaming, gaming y Roleplay.</p>
+            <div class="hero-content floating-anim">
+                <span class="badge badge-fire"><i class="fa-solid fa-fire"></i> Arquitectura de Servidores & Web Dev</span>
+                <h1 id="hero-title">CREACIÓN DE SERVIDORES DE DISCORD & DESARROLLO WEB</h1>
+                <p id="hero-desc">Especialistas en la configuración avanzada de servidores de Discord, jerarquía de roles estilizados, bots interactivos e interfaces web de alto rendimiento.</p>
                 <div class="hero-buttons">
-                    <a href="https://discord.gg/tu_invitacion" target="_blank" class="btn-primary" id="btn-discord-hero"><i class="fa-brands fa-discord"></i> Entrar al Discord Oficial</a>
-                    <a href="#servicios" class="btn-secondary" id="btn-services-hero">Ver Servicios y Precios <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="https://t.me/dev_tamayo" target="_blank" class="btn-telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                    <a href="#discord-community" class="btn-discord-hero"><i class="fa-brands fa-discord"></i> Explorar Servidor Oficial</a>
+                    <a href="#servicios" class="btn-primary"><i class="fa-solid fa-bolt"></i> Ver Servicios & Planes</a>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICIOS Y PRECIOS MULTI-DIVISA -->
+        <!-- SERVICIOS Y PAQUETES ANIMADOS -->
         <section id="servicios" class="services-section section">
-            <h2 class="section-title" id="title-services">Servicios y Paquetes</h2>
+            <h2 class="section-title">NUESTROS SERVICIOS</h2>
+            <p class="section-sub">Soluciones avanzadas para comunidades exclusivas y proyectos exigentes.</p>
+            
             <div class="services-grid">
 
                 <!-- Paquete 1 -->
-                <div class="card">
+                <div class="card card-3d">
+                    <div class="card-glow"></div>
                     <i class="fa-brands fa-discord card-icon icon-dc"></i>
-                    <h3 id="pkg1-title">Discord Community / Basic</h3>
-                    <p class="price" data-usd="15">
-                        $15 USD <span class="price-converted">(Detectando divisa...)</span>
-                    </p>
+                    <h3>Setup Discord Básico / Roleplay</h3>
+                    <p class="price" data-usd="20">$20 USD <span class="price-converted"></span></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item1">Diseño de roles y jerarquías</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item2">Canales de texto y voz organizados</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item3">Bots esenciales (Bienvenida/Auto-roles)</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg1-item4">Sistema básico de seguridad</span></li>
+                        <li><i class="fa-solid fa-check"></i> Roles con tipografía cursiva/estilizada</li>
+                        <li><i class="fa-solid fa-check"></i> Canales estructurados (`║ Emoji ・ Nombre`)</li>
+                        <li><i class="fa-solid fa-check"></i> Permisos de seguridad y anti-raids</li>
+                        <li><i class="fa-solid fa-check"></i> Integración de bots públicos principales</li>
                     </ul>
-                    <button class="btn-pay btn-dc-pay" id="btn-pkg1" onclick="irATelegram()">Contratar por Telegram</button>
+                    <button class="btn-action-card btn-require-auth" onclick="interactuarServicio('Setup Discord Básico')">Contratar en Discord</button>
                 </div>
 
                 <!-- Paquete 2 (Destacado) -->
-                <div class="card featured">
-                    <span class="badge-pop" id="badge-popular">Más Popular</span>
-                    <i class="fa-solid fa-gamepad card-icon icon-dc"></i>
-                    <h3 id="pkg2-title">Discord PRO / RP & Gaming</h3>
-                    <p class="price" data-usd="35">
-                        $35 USD <span class="price-converted">(Detectando divisa...)</span>
-                    </p>
+                <div class="card card-3d featured pulse-border">
+                    <div class="card-glow"></div>
+                    <span class="badge-pop">RECOMENDADO</span>
+                    <i class="fa-solid fa-wand-magic-sparkles card-icon icon-dc"></i>
+                    <h3>Pack VIP: Discord PRO + Web</h3>
+                    <p class="price" data-usd="50">$50 USD <span class="price-converted"></span></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item1">Todo lo del paquete Básico</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item2">Estructura para FiveM / SAMP / Minecraft</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item3">Integración de bots de economía y tickets</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item4">Registros y logs de administración</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg2-item5">Tipografía y símbolos personalizados</span></li>
+                        <li><i class="fa-solid fa-check"></i> Servidor de Discord full personalizado</li>
+                        <li><i class="fa-solid fa-check"></i> Landing Page Web con chispas de fuego</li>
+                        <li><i class="fa-solid fa-check"></i> Autenticación de usuarios vía Discord</li>
+                        <li><i class="fa-solid fa-check"></i> Reproductor de música (TAMAYO FM) & SFX</li>
                     </ul>
-                    <button class="btn-pay btn-dc-pay" id="btn-pkg2" onclick="irATelegram()">Contratar por Telegram</button>
+                    <button class="btn-action-card btn-require-auth" onclick="interactuarServicio('Pack VIP Discord PRO + Web')">Contratar en Discord</button>
                 </div>
 
                 <!-- Paquete 3 -->
-                <div class="card">
-                    <i class="fa-solid fa-code card-icon icon-tg"></i>
-                    <h3 id="pkg3-title">Personalizado / Full Setup</h3>
-                    <p class="price" id="pkg3-price">Cotización</p>
+                <div class="card card-3d">
+                    <div class="card-glow"></div>
+                    <i class="fa-solid fa-code card-icon icon-dc"></i>
+                    <h3>Bots a Medida & Sistemas Web</h3>
+                    <p class="price">Cotización Personalizada</p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item1">Rediseño total de servidor existente</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item2">Permisos avanzados antiprotección</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item3">Plantillas Web / Embeds a medida</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span id="pkg3-item4">Soporte VIP post-entrega</span></li>
+                        <li><i class="fa-solid fa-check"></i> Bots de Discord programados a medida</li>
+                        <li><i class="fa-solid fa-check"></i> Paneles de control y bases de datos</li>
+                        <li><i class="fa-solid fa-check"></i> Vinculación Web-Discord personalizada</li>
+                        <li><i class="fa-solid fa-check"></i> Soporte prioritario post-entrega</li>
                     </ul>
-                    <button class="btn-pay btn-tg-pay" id="btn-pkg3" onclick="irATelegram()">Contactar para Cotizar</button>
+                    <button class="btn-action-card btn-require-auth" onclick="interactuarServicio('Bot a Medida')">Solicitar Cotización</button>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECCIÓN DE CONTACTO Y COMUNIDAD -->
-        <section id="contacto" class="contact-section section">
-            <div class="contact-box card">
-                <h2 id="title-contact">¿Quieres unirte a la comunidad o necesitas atención personal?</h2>
-                <p id="desc-contact">Únete a nuestro servidor de Discord para interactuar con la comunidad o escríbenos por Telegram para contrataciones y cotizaciones privadas.</p>
-                <div class="contact-buttons">
-                    <a href="https://discord.gg/tu_invitacion" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> Entrar al Discord</a>
-                    <a href="https://t.me/dev_tamayo" target="_blank" class="btn-telegram"><i class="fa-brands fa-telegram"></i> Grupo de Telegram</a>
+        <!-- COMUNIDAD Y ACCESO A DISCORD -->
+        <section id="discord-community" class="discord-section section">
+            <div class="discord-box card-3d glow-discord">
+                <div class="discord-icon-wrapper">
+                    <i class="fa-brands fa-discord main-icon-glow"></i>
                 </div>
+                <h2>COMUNIDAD OFICIAL DE DISCORD</h2>
+                <p>El centro principal para realizar tus pedidos, recibir soporte técnico, ver los avances de desarrollo y conectar con otros creadores.</p>
+                <div class="discord-action">
+                    <a href="https://discord.gg/f5CVXqsHnb" id="btn-join-discord-main" target="_blank" class="btn-discord-join btn-require-auth">
+                        <i class="fa-solid fa-right-to-bracket"></i> Entrar al Servidor de Discord
+                    </a>
+                </div>
+                <p id="guest-warning" class="guest-msg hidden"><i class="fa-solid fa-lock"></i> Debes iniciar sesión con Discord en la web para habilitar el acceso directo.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- BOTONES FLOTANTES -->
+    <!-- REPRODUCTOR FLOTANTE (SONIDO) -->
+    <div class="music-player-container">
+        <audio id="bg-music" loop preload="auto">
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3" type="audio/mpeg">
+        </audio>
+        
+        <div class="music-controls" id="musicToggle" title="Reproducir / Pausar Música">
+            <div class="equalizer-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <i class="fa-solid fa-play" id="musicIcon"></i>
+            <span class="music-text">SONIDO</span>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE RÁPIDO A DISCORD -->
     <div class="floating-buttons">
-        <a href="https://t.me/dev_tamayo" target="_blank" class="telegram-float" title="Comunidad de Telegram" aria-label="Telegram">
-            <i class="fa-brands fa-telegram"></i>
+        <a href="https://discord.gg/f5CVXqsHnb" target="_blank" class="discord-float btn-require-auth" title="Servidor de Discord">
+            <i class="fa-brands fa-discord"></i>
         </a>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 TamayoDev Services. Todos los derechos reservados.</p>
+        <p>&copy; 2026 TamayoDev. Todos los derechos reservados. Especialistas en Discord & Web Development.</p>
     </footer>
 
     <!-- JAVASCRIPT -->
